@@ -1,6 +1,6 @@
 # HP-MSF Synchronizability
 
-## UNDER CONSTRUCTION
+# UNDER CONSTRUCTION
 
 This repository is currently under active development.
 
@@ -22,7 +22,7 @@ then progressively introduces different ecological coupling mechanisms.
 
 The general organization of the project is
 
-$$
+```math
 \text{Isolated HP system}
 \longrightarrow
 \text{Diffusive migration}
@@ -30,7 +30,7 @@ $$
 \text{Nonlinear pairwise couplings}
 \longrightarrow
 \text{Higher-order interactions}.
-$$
+```
 
 The current development is focused on the first two stages.
 
@@ -48,8 +48,9 @@ This includes the analysis of the dynamical behavior of the model across its
 parameter space and the identification of parameter values located within a
 well-characterized chaotic region.
 
-The selected chaotic regime provides the synchronous trajectory used in the
-subsequent Master Stability Function analysis.
+The selected chaotic regime defines the reference trajectory
+$\mathbf{x}_s(t)$ on the synchronization manifold used in the subsequent
+Master Stability Function analysis.
 
 ---
 
@@ -60,9 +61,9 @@ coupled through simple diffusive migration.
 
 For the local state vector
 
-$$
+```math
 \mathbf{x}=(x,y,z)^{\mathsf T},
-$$
+```
 
 the seven possible non-empty combinations of migrating populations are
 considered:
@@ -77,7 +78,7 @@ considered:
 
 For diffusive coupling, the transverse variational dynamics can be written as
 
-$$
+```math
 \dot{\boldsymbol{\xi}}
 =
 \left[
@@ -86,31 +87,43 @@ D\mathbf{f}(\mathbf{x}_s(t))
 rD\mathbf{g}
 \right]
 \boldsymbol{\xi},
-$$
+```
 
 where
 
-$$
+```math
 r=\sigma\lambda
-$$
+```
 
 is the normalized coupling parameter.
 
 The Master Stability Function is defined by the largest Lyapunov exponent of
 the transverse variational system,
 
-$$
+```math
 \Lambda=\Lambda(r).
-$$
+```
 
 Regions satisfying
 
-$$
+```math
 \Lambda(r)<0
-$$
+```
 
-correspond to transverse stability of the synchronized solution and therefore
-define the synchronizability region.
+correspond to transverse stability of the synchronized solution.
+
+For a given network, synchronizability requires all nontrivial transverse modes
+
+```math
+r_i=\sigma\lambda_i,
+\qquad i=2,\ldots,N,
+```
+
+to lie within a region where
+
+```math
+\Lambda(r_i)<0.
+```
 
 The seven diffusive migration schemes provide the reference cases for the
 subsequent analysis of more general ecological coupling mechanisms.
@@ -197,7 +210,8 @@ synchronized solution and therefore provides conditions for the
 **synchronizability** of the network.
 
 Direct synchronization in the complete coupled dynamical system is a separate
-question and can be studied through direct network simulations.
+dynamical question and is studied through direct network simulations, which
+can also provide an independent validation of the MSF predictions.
 
 ---
 
