@@ -200,21 +200,6 @@ the states of multiple interacting patches.
 
 ---
 
-## Synchronizability and synchronization
-
-**Synchronizability** and **synchronization** are treated as distinct concepts
-throughout this repository.
-
-The Master Stability Function characterizes the transverse stability of the
-synchronized solution and therefore provides conditions for the
-**synchronizability** of the network.
-
-Direct synchronization in the complete coupled dynamical system is a separate
-dynamical question and is studied through direct network simulations, which
-can also provide an independent validation of the MSF predictions.
-
----
-
 ## Current status
 
 **UNDER CONSTRUCTION**
