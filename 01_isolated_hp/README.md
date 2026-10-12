@@ -73,12 +73,12 @@ hp_isolated_dynamics.ipynb
 
 and includes:
 
-- population time series;
-- three-dimensional attractors;
-- two-dimensional phase-space projections;
-- running Lyapunov exponents;
-- block-based Lyapunov estimates and uncertainty analysis;
-- sensitivity to nearby initial conditions;
+- population time series,
+- three-dimensional attractors,
+- two-dimensional phase-space projections,
+- running Lyapunov exponents,
+- block-based Lyapunov estimates and uncertainty analysis,
+- sensitivity to nearby initial conditions,
 - direct comparisons between the two working points.
 
 The numerical results are stored in `data/`, and the corresponding static
@@ -106,5 +106,5 @@ resulting chaotic dynamics in detail.
 ## Numerical routines
 
 Each analysis directory currently contains a local copy of `hp_core.py`, which
-provides the Hastings–Powell equations, Jacobian, numerical integration
+provides the HP equations, Jacobian, numerical integration
 routines, and Lyapunov-exponent utilities used by the notebooks in this stage.
