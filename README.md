@@ -14,10 +14,10 @@ development of the work.
 ## About this repository
 
 This repository contains the numerical implementation and results of a study
-of **synchronizability in networks of Hastings–Powell ecological systems**
+of **synchronizability in networks of Hastings-Powell (HP) ecological systems**
 within the **Master Stability Function (MSF)** framework.
 
-The work begins with a detailed analysis of the isolated Hastings–Powell
+The work begins with a detailed analysis of the isolated HP
 system. This first stage establishes the local chaotic dynamics that will later
 be used as the reference dynamics in the study of coupled ecological systems.
 
@@ -34,14 +34,14 @@ The project is organized progressively as
 ```
 
 The current repository contains the numerical analysis of the isolated
-Hastings–Powell system.
+HP system.
 
 ---
 
-## 1. Isolated Hastings–Powell system
+## 1. Isolated HP system
 
 The first stage is devoted to establishing and characterizing the chaotic
-dynamics of the isolated Hastings–Powell model before introducing interactions
+dynamics of the isolated HP model before introducing interactions
 between ecological patches.
 
 It is divided into two parts.
@@ -133,7 +133,7 @@ numerical implementation are not included in the repository.
 ## Next stages
 
 The next stage will introduce **simple diffusive migration** between identical
-Hastings–Powell systems and apply the classical Master Stability Function
+HP systems and apply the classical MSF
 formalism to the seven possible non-empty combinations of migrating
 populations:
 
