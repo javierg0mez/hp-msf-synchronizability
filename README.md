@@ -70,9 +70,10 @@ The corresponding notebooks, numerical data, and figures are stored in
 Once suitable chaotic working points have been identified, the second part
 examines the dynamics of the isolated system in greater detail.
 
-This includes the evolution of the three populations, phase-space
-representations, Lyapunov-exponent behavior, sensitivity to initial
-conditions, and comparisons between the selected chaotic regimes.
+This includes population time series, three-dimensional attractors and
+phase-space projections, convergence of the Lyapunov exponents, block-based
+uncertainty estimates, sensitivity to nearby initial conditions, and direct
+comparisons between the selected chaotic working points.
 
 The corresponding notebook, processed data, and figures are stored in
 
