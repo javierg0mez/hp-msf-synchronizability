@@ -137,13 +137,13 @@ HP systems and apply the classical MSF
 formalism to the seven possible non-empty combinations of migrating
 populations:
 
-- \(x\)
-- \(y\)
-- \(z\)
-- \(xy\)
-- \(xz\)
-- \(yz\)
-- \(xyz\)
+- $x$
+- $y$
+- $z$
+- $xy
+- $xz$
+- $yz$
+- $xyz$
 
 These cases will provide the reference MSF results before moving to more
 general nonlinear and ecologically motivated pairwise coupling mechanisms.
