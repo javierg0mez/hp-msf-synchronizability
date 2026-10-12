@@ -49,7 +49,7 @@ It is divided into two parts.
 ### 1.1 Chaos characterization
 
 The first part studies the dynamical behavior of the model as the mortality
-parameter \(d_1\) is varied.
+parameter $d_1$ is varied.
 
 The analysis combines bifurcation information and Lyapunov exponents to
 identify parameter values located inside chaotic regions and to distinguish
