@@ -140,7 +140,7 @@ populations:
 - $x$
 - $y$
 - $z$
-- $xy
+- $xy$
 - $xz$
 - $yz$
 - $xyz$
