@@ -4,7 +4,7 @@
 
 This repository is currently under active development.
 
-Results, figures, numerical implementations, and documentation will be added
+Results, figures, numerical implementations, and documentation are added
 progressively as the different stages of the project are completed. The
 organization and content of the repository may therefore change during the
 development of the work.
@@ -17,10 +17,11 @@ This repository contains the numerical implementation and results of a study
 of **synchronizability in networks of Hastings–Powell ecological systems**
 within the **Master Stability Function (MSF)** framework.
 
-The work starts from the dynamics of the isolated Hastings–Powell system and
-then progressively introduces different ecological coupling mechanisms.
+The work begins with a detailed analysis of the isolated Hastings–Powell
+system. This first stage establishes the local chaotic dynamics that will later
+be used as the reference dynamics in the study of coupled ecological systems.
 
-The general organization of the project is
+The project is organized progressively as
 
 ```math
 \text{Isolated HP system}
@@ -32,101 +33,54 @@ The general organization of the project is
 \text{Higher-order interactions}.
 ```
 
-The current development is focused on the first two stages.
+The current repository contains the numerical analysis of the isolated
+Hastings–Powell system.
 
 ---
 
 ## 1. Isolated Hastings–Powell system
 
-The first stage is devoted to the isolated Hastings–Powell model.
+The first stage is devoted to establishing and characterizing the chaotic
+dynamics of the isolated Hastings–Powell model before introducing interactions
+between ecological patches.
 
-The objective is to characterize the local dynamics of the system and establish
-a reliable dynamical reference before introducing interactions between
-ecological patches.
+It is divided into two parts.
 
-This includes the analysis of the dynamical behavior of the model across its
-parameter space and the identification of parameter values located within a
-well-characterized chaotic region.
+### 1.1 Chaos characterization
 
-The selected chaotic regime defines the reference trajectory
-$\mathbf{x}_s(t)$ on the synchronization manifold used in the subsequent
-Master Stability Function analysis.
+The first part studies the dynamical behavior of the model as the mortality
+parameter \(d_1\) is varied.
 
----
+The analysis combines bifurcation information and Lyapunov exponents to
+identify parameter values located inside chaotic regions and to distinguish
+them from nearby periodic windows.
 
-## 2. Diffusive migration
+The numerical work includes global and fine parameter scans, Lyapunov-spectrum
+calculations, continuation tests, and additional checks at the selected working
+points.
 
-The second stage considers networks of identical Hastings–Powell systems
-coupled through simple diffusive migration.
+The corresponding notebooks, numerical data, and figures are stored in
 
-For the local state vector
-
-```math
-\mathbf{x}=(x,y,z)^{\mathsf T},
+```text
+01_isolated_hp/01_chaos_characterization/
 ```
 
-the seven possible non-empty combinations of migrating populations are
-considered:
+### 1.2 Isolated dynamics
 
-- $x$
-- $y$
-- $z$
-- $xy$
-- $xz$
-- $yz$
-- $xyz$
+Once suitable chaotic working points have been identified, the second part
+examines the dynamics of the isolated system in greater detail.
 
-For diffusive coupling, the transverse variational dynamics can be written as
+This includes the evolution of the three populations, phase-space
+representations, Lyapunov-exponent behavior, sensitivity to initial
+conditions, and comparisons between the selected chaotic regimes.
 
-```math
-\dot{\boldsymbol{\xi}}
-=
-\left[
-D\mathbf{f}(\mathbf{x}_s(t))
--
-rD\mathbf{g}
-\right]
-\boldsymbol{\xi},
+The corresponding notebook, processed data, and figures are stored in
+
+```text
+01_isolated_hp/02_isolated_dynamics/
 ```
 
-where
-
-```math
-r=\sigma\lambda
-```
-
-is the normalized coupling parameter.
-
-The Master Stability Function is defined by the largest Lyapunov exponent of
-the transverse variational system,
-
-```math
-\Lambda=\Lambda(r).
-```
-
-Regions satisfying
-
-```math
-\Lambda(r)<0
-```
-
-correspond to transverse stability of the synchronized solution.
-
-For a given network, synchronizability requires all nontrivial transverse modes
-
-```math
-r_i=\sigma\lambda_i,
-\qquad i=2,\ldots,N,
-```
-
-to lie within a region where
-
-```math
-\Lambda(r_i)<0.
-```
-
-The seven diffusive migration schemes provide the reference cases for the
-subsequent analysis of more general ecological coupling mechanisms.
+These results provide the dynamical reference for the subsequent MSF analysis.
 
 ---
 
@@ -136,67 +90,65 @@ subsequent analysis of more general ecological coupling mechanisms.
 hp-msf-synchronizability/
 │
 ├── 01_isolated_hp/
+│   │
 │   ├── README.md
-│   ├── notebooks/
-│   ├── data/
-│   └── figures/
-│
-├── 02_diffusive_migration/
-│   ├── README.md
-│   ├── notebooks/
-│   ├── data/
-│   └── figures/
-│
-├── src/
+│   │
+│   ├── 01_chaos_characterization/
+│   │   ├── hp_core.py
+│   │   ├── hp_global_d1_scan.ipynb
+│   │   ├── hp_fine_d1_scans.ipynb
+│   │   ├── hp_working_points_checks.ipynb
+│   │   ├── data/
+│   │   └── figures/
+│   │
+│   └── 02_isolated_dynamics/
+│       ├── hp_core.py
+│       ├── hp_isolated_dynamics.ipynb
+│       ├── data/
+│       └── figures/
 │
 ├── README.md
 └── .gitignore
 ```
 
-### `01_isolated_hp`
-
-Contains the analysis and numerical characterization of the isolated
-Hastings–Powell system.
-
-### `02_diffusive_migration`
-
-Contains the MSF analysis for the seven simple diffusive migration schemes.
-
-### `src`
-
-Contains the common numerical routines used throughout the project, including
-the Hastings–Powell dynamics, Jacobians, numerical integration, Lyapunov
-exponent calculations, coupling definitions, and MSF routines.
-
 ---
 
 ## Numerical organization
 
-The repository separates reusable numerical routines from the individual
-numerical experiments.
+Jupyter notebooks are used to organize the numerical experiments, analysis,
+and visualization of the results.
 
-Jupyter notebooks are used for the analysis, visualization, and organization
-of numerical results, while common routines are maintained in reusable Python
-modules.
+Numerical outputs are stored separately from the notebooks in `data/`, while
+the corresponding graphical results are stored in `figures/`.
 
-Numerical results are stored together with the corresponding data and figures
-so that the calculations can be reproduced and traced back to the parameters
-and numerical settings used to generate them.
+The numerical implementation is organized so that the simulations can be
+traced back to the model parameters and numerical settings used to generate
+the results.
+
+Large intermediate trajectory files that can be regenerated directly from the
+numerical implementation are not included in the repository.
 
 ---
 
 ## Next stages
 
-After the analysis of simple diffusive migration, the framework will be applied
-to more general pairwise ecological coupling mechanisms.
+The next stage will introduce **simple diffusive migration** between identical
+Hastings–Powell systems and apply the classical Master Stability Function
+formalism to the seven possible non-empty combinations of migrating
+populations:
 
-These interactions will include nonlinear and ecologically motivated coupling
-protocols associated with processes such as population movement, trophic
-interactions, and density-dependent effects.
+- \(x\)
+- \(y\)
+- \(z\)
+- \(xy\)
+- \(xz\)
+- \(yz\)
+- \(xyz\)
 
-The subsequent stage will extend the analysis to **higher-order interactions**,
-where the dynamics of a focal ecological patch may depend simultaneously on
-the states of multiple interacting patches.
+These cases will provide the reference MSF results before moving to more
+general nonlinear and ecologically motivated pairwise coupling mechanisms.
+
+The subsequent stage will extend the analysis to **higher-order interactions**.
 
 ---
 
@@ -204,8 +156,7 @@ the states of multiple interacting patches.
 
 **UNDER CONSTRUCTION**
 
-The repository is being populated progressively as new numerical results are
-obtained and validated.
+The isolated-system analysis is currently available in the repository.
 
-Results, figures, numerical methods, and documentation may be updated during
-the development of the project.
+Additional numerical results, coupling mechanisms, figures, and documentation
+will be incorporated progressively as the project develops.
